@@ -6,18 +6,18 @@ The PLAYER opens the app to a fresh game.
 
 They can READ THE RULES by clicking the "HELP" chip, or they can START PLAYING by clicking on the deck.
 
-READ THE RULES
+## READ THE RULES
 ==============
 
 A modal view will open with two tabs; one to read the rules (as outlined below under START PLAYING) and another to view the POKER GLOSSARY. The game can be returned to at any time by closing this view.
 
-POKER GLOSSARY
+## POKER GLOSSARY
 ==============
 	
 A dictionary of poker terminology to aid unfamiliar players, and a visual guide to the various hands.
 
 
-START PLAYING
+## START PLAYING
 =============
 
 Upon starting the game, the DECK is shuffled, five face-down COMMUNITY CARDS will be placed on the table, and two face-up HOLE CARDS will be dealt to the PLAYER.
@@ -35,7 +35,7 @@ At the ANTE stage, the PLAYER chooses their HAND BET -- a poker hand they predic
 
 The ROUND END condition is met as soon as the HAND BET is fulfilled; the round will end and skip immediately to PAYOUTS at such a time.
 
-Stage 1: ANTE
+### Stage 1: ANTE
 =============
 
 The PLAYER is prompted to select an initial bet of CHIPS to place, as well as a HAND BET which they predict will be revealed by the RIVER REVEAL stage.
@@ -44,7 +44,7 @@ ROUND END if the PLAYER already has ONE PAIR as their HOLE CARDS and places thei
 - need to determine how likely this is to happen and adjust the one payout accordingly under this specific condition
 
 
-Stage 2: FLOP REVEAL
+### Stage 2: FLOP REVEAL
 ====================
 
 The FLOP, or initial trio of COMMUNITY CARDS, is revealed.
@@ -52,13 +52,13 @@ The FLOP, or initial trio of COMMUNITY CARDS, is revealed.
 ROUND END if the HAND BET is fulfilled at this stage.
 
 
-Stage 3: FLOP BETTING
+### Stage 3: FLOP BETTING
 =====================
 
 If the PLAYER's HAND BET has not been met by this stage, the PLAYER is given the opportunity to RAISE their bet, CHECK and proceed without changing, or FOLD to forfeit their CHIPS and trigger the ROUND END.
 
 
-Stage 4: TURN REVEAL
+### Stage 4: TURN REVEAL
 ====================
 
 The TURN, or fourth COMMUNITY CARD, is revealed.
@@ -66,20 +66,20 @@ The TURN, or fourth COMMUNITY CARD, is revealed.
 ROUND END if the HAND BET is fulfilled at this stage.
 
 
-Stage 5: TURN BETTING
+### Stage 5: TURN BETTING
 =====================
 
 As with FLOP BETTING.
 
 
-Stage 6: RIVER REVEAL
+### Stage 6: RIVER REVEAL
 =====================
 
 The RIVER, or fifth and final COMMUNITY CARD, is revealed.
 
 The ROUND END occurs at this stage regardless of whether the HAND BET was fulfilled.
 
-Stage 7: PAYOUTS
+### Stage 7: PAYOUTS
 ================
 
 A modal view opens with a summary of the round.
@@ -94,14 +94,14 @@ If the HAND BET was fulfilled, the PLAYER is congratulated and presented with a 
 -Any UNLOCKS earned by the PLAYER during that round
 
 
-UNLOCKS
+## UNLOCKS
 =======
 
 Through various means, PLAYERs can acquire UNLOCKS which will alter the game experience. These range from cosmetic changes, like new table backdrops and card backs, to new mechanics such as the addition of JOKERS to the deck.
 
 Some of these will be available to purchase with won CHIPS via the GIFT SHOP, but some will require some rare criteria to be fulfilled. Example: A unique Wild West-themed card set might be unlocked by winning a TWO PAIR HAND BET specificially with a black Aces and Eights (Or possibly with any of the claimants for the title of Dead Man's Hand).
 
-MECHANICS UNLOCKS
+### MECHANICAL UNLOCKS
 =================
 
 -JOKERS
@@ -134,7 +134,7 @@ An unlock with one rank.
 At the start of any round, adds a small chance for one card in the deck to be replaced with a card from an entirely different, financially extortionate collectible card game. Effects TBD.
 
 
-COSMETIC UNLOCKS
+### COSMETIC UNLOCKS
 ================
 
 Dead Man's Hand - Win a TWO PAIR HAND BET with two pair aces and eights, each pair consisting of spades and clubs: "Wild Bill" table backdrop + card back
