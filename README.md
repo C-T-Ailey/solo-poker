@@ -75,13 +75,14 @@ The **Round End** occurs at this stage regardless of whether the **Hand Bet** wa
 A modal view opens with a summary of the round.
 
 If the **Hand Bet** was fulfilled, the **Player** is congratulated and presented with a breakdown of their winning statistics, i.e.:
--**Hand Bet**
--Wager Placed (in **Chips**)
--**Hand Bet** Payout Rate (1:X)
--**Chips** Won
--Updated **Player Chips** Count
--Winning Streak Count
--Any UNLOCKS earned by the **Player** during that round
+
+- **Hand Bet**
+- Wager Placed (in **Chips**)
+- **Hand Bet** Payout Rate (1:X)
+- **Chips** Won
+- Updated **Player Chips** Count
+- Winning Streak Count
+- Any UNLOCKS earned by the **Player** during that round
 
 
 ## UNLOCKS
