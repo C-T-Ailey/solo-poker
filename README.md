@@ -49,7 +49,7 @@ The **Flop**, or initial trio of **Community Cards**, is revealed.
 
 ### Stage 3: Flop Betting
 
-If the **Player**'s **Hand Bet** has not been met by this stage, the **Player** is given the opportunity to RAISE their bet, CHECK and proceed without changing, or FOLD to forfeit their **Chips** and trigger the **Round End**.
+If the **Player**'s **Hand Bet** has not been met by this stage, the **Player** is given the opportunity to **Raise** their bet, **Check** and proceed without changing, or **Fold** to forfeit their **Chips** and trigger the **Round End**.
 
 
 ### Stage 4: Turn Reveal
@@ -81,14 +81,14 @@ If the **Hand Bet** was fulfilled, the **Player** is congratulated and presented
 - **Chips** Won
 - Updated **Player Chips** Count
 - Winning Streak Count
-- Any UNLOCKS earned by the **Player** during that round
+- Any **Unlocks** earned by the **Player** during that round
 
 
 ## UNLOCKS
 
 Through various means, **Player**s can acquire **Unlocks** which will alter the game experience. These range from cosmetic changes, like new table backdrops and card backs, to new mechanics such as the addition of **Jokers** to the deck.
 
-Some of these will be available to purchase with won **Chips** via the **Gift Shop**, but some will require some rare criteria to be fulfilled. Example: A unique Wild West-themed card set might be unlocked by winning a **Two Pair** **Hand Bet** specificially with a black Aces and Eights (Or possibly with any of the claimants for the title of Dead Man's Hand).
+Some of these will be available to purchase with won **Chips** via the **Gift Shop**, but some will require some rare criteria to be fulfilled. Example: A unique Wild West-themed card set might be unlocked by winning a **Two Pair** **Hand Bet** specificially with black Aces and Eights (Or possibly with any of the claimants for the title of Dead Man's Hand).
 
 ### MECHANICAL UNLOCKS
 
@@ -128,7 +128,7 @@ Three Pair - Win a **Two Pair** **Hand Bet** with a **Three Pair** hand: "Three 
 
 Royal Flushed Away - Reveal a Royal Flush in a round where you didn't bet on it: "The Fool" card back
 
-Royal Rush - Win a round with a ROYAL FLUSH **Hand Bet**: "Round Table" table backdrop + "Coat of Arms" card back
+Royal Rush - Win a round with a **Royal Flush** **Hand Bet**: "Round Table" table backdrop + "Coat of Arms" card back
 
 But Doctor, I Am Pagliacci - Win a round thanks to **Mono**'s effect: "Melpomene" card back
 
