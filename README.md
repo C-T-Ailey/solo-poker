@@ -20,13 +20,13 @@ A dictionary of poker terminology to aid unfamiliar players, and a visual guide 
 Upon starting the game, the **Deck** is shuffled, five face-down **Community Cards** will be placed on the table, and two face-up **Hole Cards** will be dealt to the **Player**.
 
 The game will progress through 7 stages: 
--**Ante**
--**Flop Reveal**
--**Flop Betting**
--**Turn Reveal**
--**Turn Betting**
--**River Reveal**
--**Payouts**
+- **Ante**
+- **Flop Reveal**
+- **Flop Betting**
+- **Turn Reveal**
+- **Turn Betting**
+- **River Reveal**
+- **Payouts**
 
 At the **Ante** stage, the **Player** chooses their **Hand Bet** -- a poker hand they predict will appear during the round among the combined **Community** and **Hole Cards**.
 
@@ -75,7 +75,6 @@ The **Round End** occurs at this stage regardless of whether the **Hand Bet** wa
 A modal view opens with a summary of the round.
 
 If the **Hand Bet** was fulfilled, the **Player** is congratulated and presented with a breakdown of their winning statistics, i.e.:
-
 - **Hand Bet**
 - Wager Placed (in **Chips**)
 - **Hand Bet** Payout Rate (1:X)
