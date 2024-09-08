@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import gambler from './assets/8bitgambler.mp3'
+import helpChip from './assets/help_chip.png'
 import './App.css'
+import Help from './components/Help'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [showHelp, setShowHelp] = useState(false)
+
+  useEffect(()=>{
+    console.log(showHelp)
+  },[showHelp])
 
   return (
     <div id='app-window' className='w-screen h-screen bg-green-500 flex justify-center items-center'>
@@ -20,8 +27,8 @@ function App() {
             Deck
           </div>
 
-          <div id='help' className='absolute right-0 w-52 h-52 bg-white'>
-            Help
+          <div id='help' className='absolute right-0 w-fit h-fit m-4'>
+            <img id="help-chip" alt='help button' src={helpChip} className='w-48 h-48' onClick={() => {setShowHelp(!showHelp)}}/>
           </div>
           
           <div id='community' className='m-auto h-fit w-fit flex flex-row'>
@@ -41,8 +48,11 @@ function App() {
           </div>
 
         {/* </div> */}
+        
+      <Help showHelp={showHelp} setShowHelp={setShowHelp} />
 
       </div>
+
 
     </div>
   )
