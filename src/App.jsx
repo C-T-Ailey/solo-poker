@@ -78,9 +78,6 @@ function App() {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-
-
-
   // function for generating a card to include in the deck
   const generateCard = () => {
     let value = 0;
@@ -135,6 +132,12 @@ function App() {
 
     return drawnCard;
   }
+  
+  const detectHand = () => {
+    let fullHand = community.concat(hole)
+    console.log(fullHand)
+    
+  }
 
   const dealOut = () => {
 
@@ -165,8 +168,8 @@ function App() {
       console.log("deck not initialized")
     }
 
-
   }
+
 
 
 
@@ -194,7 +197,7 @@ function App() {
           <div id='community' className='m-auto h-fit w-fit flex flex-row'>
             {!!community.length ? 
              community.map((card, index) => (
-              <div key={index} className='w-28 h-40 rounded-lg border-white border-dashed border-4 opacity-75 mx-4 flex items-center justify-center text-white'>
+              <div key={index} className='w-28 h-40 rounded-lg border-white border-dashed border-4 opacity-75 mx-4 flex items-center justify-center text-white text-center'>
                 {card.name()}
               </div>
              ))
@@ -220,7 +223,7 @@ function App() {
               <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => generateDeck()}>Start Game</button>
               {/* <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => drawCard()}>Draw Card</button> */}
               <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => dealOut()}>Deal Out</button>
-              {/* <button></button> */}
+              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => detectHand()}>Check Hand</button>
           </div>
         
       <Help showHelp={showHelp} setShowHelp={setShowHelp} />
