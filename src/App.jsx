@@ -8,7 +8,11 @@ import Help from './components/Help'
 
 function App() {
 
+
+
   // ###### STATES #####
+
+
   
   // state managing the help modal view
   const [showHelp, setShowHelp] = useState(false)
@@ -30,15 +34,20 @@ function App() {
 
   // useeffect hook for debugging the deck state
   useEffect(()=>{
-    console.log(deck)
+    // console.log(deck)
   },[deck])
 
   // useeffect hook for debugging winning hands
   useEffect(()=>{
-    detectOfKind(fullHand)
+    detectOfKind(fullHand);
+    console.log(detectFlush(fullHand))
   },[community])
 
+
+
   // ##### VARIABLES/CLASSES #####
+
+
 
   // arrays containing the items for constructing cards
   const suitsArray = ["Clubs","Diamonds","Hearts","Spades"];
@@ -72,7 +81,10 @@ function App() {
   }
 
 
+
   // ##### FUNCTIONS #####
+
+
 
   // function for generating random integers
   const randInt = (min, max) => {
@@ -136,8 +148,12 @@ function App() {
     return drawnCard;
   }
 
+
+
   // concatenated array of cards from community and hole
   let fullHand = community.concat(hole);
+
+
   
   // function for detecting hands containing X of a Kind, including Full House
   const detectOfKind = (arr) => {
@@ -150,8 +166,6 @@ function App() {
     let threeKind = []
 
     let fourKind = []
-
-    // const values = fullHand.map(card => card.value)
 
 
     // for each card in the argument array, filter the array down to cards which match the currently iterated card's rank and push them to their relevant housing array
@@ -200,13 +214,23 @@ function App() {
       console.log("No winners") 
     }
 
-    // values.forEach(value => {
-    //   const test = values.filter(inst => inst == value)
-    //   console.log(test)
-    // })
   }
 
-  const detectFlush = (arr) => {}
+  const detectFlush = (arr) => {
+    let suits = {Spades: 0, Clubs: 0, Diamonds: 0, Hearts: 0}
+    arr.forEach(card => {
+      suits[card.suit]++;
+    })
+
+    for (const suit in suits) {
+      console.log(suit, suits[suit])
+      if (suits[suit] === 5) {
+        return `${suit} flush`
+      }
+    }
+
+    return "no flush"
+  }
 
   const detectStraight = (arr) => {}
   
@@ -298,8 +322,8 @@ function App() {
           <div id="testbuttons" className='absolute bottom-52 flex flex-col items-center w-full'>
               <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => generateDeck()}>Start Game</button>
               {/* <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => drawCard()}>Draw Card</button> */}
-              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => dealOut()}>Deal Out</button>
-              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => detectOfKind(fullHand)}>Check Hand</button>
+              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' disabled={deck.length < 7} onClick={() => dealOut()}>Deal Out</button>
+              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => console.log(detectFlush(fullHand))}>Check Hand</button>
           </div>
         
       <Help showHelp={showHelp} setShowHelp={setShowHelp} />
