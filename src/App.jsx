@@ -33,7 +33,10 @@ function App() {
     console.log(deck)
   },[deck])
 
-
+  // useeffect hook for debugging winning hands
+  useEffect(()=>{
+    detectOfKind(fullHand)
+  },[community])
 
   // ##### VARIABLES/CLASSES #####
 
@@ -132,12 +135,85 @@ function App() {
 
     return drawnCard;
   }
+
+  // concatenated array of cards from community and hole
+  let fullHand = community.concat(hole);
   
-  const detectHand = () => {
-    let fullHand = community.concat(hole)
-    console.log(fullHand)
+  // function for detecting hands containing X of a Kind, including Full House
+  const detectOfKind = (arr) => {
+
+    let kinds = {}
+
+    // arrays for housing the values of detected Kinds
+    let pairs = []
+
+    let threeKind = []
+
+    let fourKind = []
+
+    // const values = fullHand.map(card => card.value)
+
+
+    // for each card in the argument array, filter the array down to cards which match the currently iterated card's rank and push them to their relevant housing array
+    arr.forEach(card => {
+
+      const rankMatches = arr.filter(filtered => filtered.rank === card.rank)
+      
+      rankMatches.forEach(match => {
+        if(rankMatches.length === 2 && !pairs.includes(match.rank)){
+          pairs.push(match.rank)
+
+        }
+        else if (rankMatches.length === 3 && !threeKind.includes(match.rank)){
+          threeKind.push(match.rank)
+        }
+        else if (rankMatches.length === 4){
+          fourKind.push(match.rank)
+        }
+      })
+
+      console.log(!!fourKind.length, !!threeKind.length, !!pairs.length)
+
+    })
     
+    // return winning hands depending on the length of the housing arrays, in order of priority
+    if (!!fourKind.length){
+      console.log("Four of a Kind") 
+    }
+    else if (!!threeKind.length){
+      if (!pairs.length){
+        console.log("Three of a Kind") 
+      }
+      else {
+        console.log("Full House") 
+      }
+    }
+    else if (!!pairs.length){
+      if (pairs.length === 1){
+        console.log("One Pair") 
+      }
+      else {
+        console.log("Two Pair") 
+      }
+    }
+    else {
+      console.log("No winners") 
+    }
+
+    // values.forEach(value => {
+    //   const test = values.filter(inst => inst == value)
+    //   console.log(test)
+    // })
   }
+
+  const detectFlush = (arr) => {}
+
+  const detectStraight = (arr) => {}
+  
+  const detectRoyal = (arr) => {}
+
+  
+
 
   const dealOut = () => {
 
@@ -223,7 +299,7 @@ function App() {
               <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => generateDeck()}>Start Game</button>
               {/* <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => drawCard()}>Draw Card</button> */}
               <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => dealOut()}>Deal Out</button>
-              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => detectHand()}>Check Hand</button>
+              <button className='bg-white hover:bg-slate-200 w-fit mb-4 p-1 rounded-md border-double border-4 border-black' onClick={() => detectOfKind(fullHand)}>Check Hand</button>
           </div>
         
       <Help showHelp={showHelp} setShowHelp={setShowHelp} />
