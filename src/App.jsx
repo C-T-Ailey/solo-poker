@@ -41,6 +41,7 @@ function App() {
   useEffect(()=>{
     detectOfKind(fullHand);
     console.log(detectFlush(fullHand))
+    detectStraight(fullHand)
   },[community])
 
 
@@ -80,6 +81,28 @@ function App() {
     }
   }
 
+  // concatenated array of cards from community and hole
+  let fullHand = community.concat(hole);
+
+  let debugFlush = [
+    new Card("Diamonds", "Ace", 1),
+    new Card("Diamonds", "Three", 3),
+    new Card("Diamonds", "Five", 5),
+    new Card("Diamonds", "Seven", 7),
+    new Card("Diamonds", "Nine", 9),
+    new Card("Diamonds", "Jack", 11),
+    new Card("Diamonds", "King", 13),
+  ]
+
+  let debugStraight = [
+    new Card("Diamonds", "Ace", 1),
+    new Card("Hearts", "King", 13),
+    new Card("Clubs", "Ten", 10),
+    new Card("Spades", "Jack", 11),
+    new Card("Diamonds", "Four", 4),
+    new Card("Hearts", "Nine", 9),
+    new Card("Clubs", "Queen", 12),
+  ]
 
 
   // ##### FUNCTIONS #####
@@ -150,10 +173,7 @@ function App() {
 
 
 
-  // concatenated array of cards from community and hole
-  let fullHand = community.concat(hole);
-
-
+  
   
   // function for detecting hands containing X of a Kind, including Full House
   const detectOfKind = (arr) => {
@@ -216,23 +236,92 @@ function App() {
 
   }
 
+
+
   const detectFlush = (arr) => {
+    // define an object for counting the number of cards of each suit
     let suits = {Spades: 0, Clubs: 0, Diamonds: 0, Hearts: 0}
+    
+    // for each card in the arg array, iterate the property value of its corresponding suit by one
     arr.forEach(card => {
       suits[card.suit]++;
     })
 
+    // for each suit in suits, declare a flush if that suit's count is greater than or equal to 5
     for (const suit in suits) {
       console.log(suit, suits[suit])
-      if (suits[suit] === 5) {
+      if (suits[suit] >= 5) {
         return `${suit} flush`
       }
     }
 
+    // otherwise, declare that no flush was found
     return "no flush"
   }
 
-  const detectStraight = (arr) => {}
+  const detectStraight = (arr) => {
+
+    // sort the values of the input array
+    let sortedValues = arr.map(card => card.value).sort((a,b) => a - b)
+
+    // create a set with duplicate values removed
+    let uniqueValues = [...new Set(sortedValues)]
+
+    // empty array for pushing sequential numbers
+    let sequenceCheck = []
+
+    let lastInSequence = null
+
+    uniqueValues.forEach(value => {
+      
+      // last value in uniqueValues
+      let lastValue = uniqueValues[uniqueValues.length - 1]
+  
+      
+      console.log(sequenceCheck)
+      
+      // index of the next value in uniqueValues
+      let nextIndex = uniqueValues.indexOf(value)+1;
+      
+      // boolean for whether the value at the next index is equal to the current value plus one
+      let valueIsIncrement = uniqueValues[nextIndex] === value + 1
+      
+      // if sequenceCheck is populated,
+      if (!!sequenceCheck.length){
+        // and if the next value is incremental of the current, push the value to sequenceCheck
+        if (!!valueIsIncrement){
+          sequenceCheck.push(value)
+        }
+        // if current value is the last in the array and the last value in sequenceCheck is one less than the current value, push to sequenceCheck - else empty the array
+        else if (value === lastValue && lastInSequence === value - 1) {
+          sequenceCheck.push(value)
+        }
+        else {
+          sequenceCheck = []
+        }
+      }
+      
+      else {
+        if (!!valueIsIncrement) {
+          sequenceCheck.push(value)
+        }
+        else {
+          sequenceCheck = []
+        } 
+      }
+      
+      // last value in sequenceCheck
+      lastInSequence = sequenceCheck[sequenceCheck.length - 1]
+      
+      console.log(sequenceCheck)
+      if (sequenceCheck.length >= 5){
+        // return true
+        console.log(`${lastInSequence}-high Straight`)
+      }
+    })
+    
+
+  }
   
   const detectRoyal = (arr) => {}
 
