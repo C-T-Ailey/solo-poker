@@ -263,63 +263,50 @@ function App() {
 
     // sort the values of the input array
     let sortedValues = arr.map(card => card.value).sort((a,b) => a - b)
+    console.log("Sorted:", sortedValues)
 
     // create a set with duplicate values removed
     let uniqueValues = [...new Set(sortedValues)]
+    console.log("Unique:", uniqueValues)
 
     // empty array for pushing sequential numbers
     let sequenceCheck = []
 
-    let lastInSequence = null
+    // let lastInSequence = null
 
-    uniqueValues.forEach(value => {
-      
-      // last value in uniqueValues
-      let lastValue = uniqueValues[uniqueValues.length - 1]
-  
-      
-      console.log(sequenceCheck)
-      
-      // index of the next value in uniqueValues
-      let nextIndex = uniqueValues.indexOf(value)+1;
-      
-      // boolean for whether the value at the next index is equal to the current value plus one
-      let valueIsIncrement = uniqueValues[nextIndex] === value + 1
-      
-      // if sequenceCheck is populated,
-      if (!!sequenceCheck.length){
-        // and if the next value is incremental of the current, push the value to sequenceCheck
-        if (!!valueIsIncrement){
-          sequenceCheck.push(value)
-        }
-        // if current value is the last in the array and the last value in sequenceCheck is one less than the current value, push to sequenceCheck - else empty the array
-        else if (value === lastValue && lastInSequence === value - 1) {
-          sequenceCheck.push(value)
-        }
-        else {
-          sequenceCheck = []
-        }
+    for (let i = 0; i < uniqueValues.length; i++) {
+      const value = uniqueValues[i];
+
+      const nextValue = uniqueValues[i+1]
+
+      const previousValue = uniqueValues[i-1]
+
+      const endOfArray = uniqueValues[uniqueValues.length - 1]
+
+      if (value === uniqueValues[0] && nextValue === value + 1){
+        console.log("i = 0, next is in sequence")
+        sequenceCheck.push(value)
       }
-      
+      else if (value === endOfArray && previousValue === value - 1) {
+        sequenceCheck.push(value)
+      }
+      else if (nextValue === value + 1) {
+        sequenceCheck.push(value)
+      }
       else {
-        if (!!valueIsIncrement) {
-          sequenceCheck.push(value)
-        }
-        else {
-          sequenceCheck = []
-        } 
+        console.log("sequence broken")
+        sequenceCheck = []
       }
-      
-      // last value in sequenceCheck
-      lastInSequence = sequenceCheck[sequenceCheck.length - 1]
-      
+
       console.log(sequenceCheck)
-      if (sequenceCheck.length >= 5){
-        // return true
-        console.log(`${lastInSequence}-high Straight`)
-      }
-    })
+      
+    }
     
+    console.log(sequenceCheck)
+    if (sequenceCheck.length >= 5){
+      // return true
+      console.log(`${sequenceCheck[sequenceCheck.length - 1]}-high Straight`)
+    }
 
   }
   
